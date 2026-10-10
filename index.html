@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>بوابة الأنظمة والبرامج</title>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#087f7b">
   <meta name="apple-mobile-web-app-title" content="بوابة الأنظمة">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -24,9 +26,23 @@
 <main>
   <img src="apple-touch-icon.png" alt="شعار وزارة التعليم">
   <h1>بوابة الأنظمة والبرامج</h1>
-  <p>اضغط على الزر لفتح البوابة الرسمية.</p>
-  <!-- استبدل رابط المثال برابط نشر Apps Script الذي ينتهي بـ /exec -->
+  <p>اضغط على الزر للدخول إلى البوابة. لإضافة الأيقونة: في الآيفون اختر مشاركة ثم «إضافة إلى الشاشة الرئيسية»، وفي أندرويد اختر تثبيت التطبيق أو «إضافة إلى الشاشة الرئيسية» من Chrome.</p>
+  <!-- رابط الدخول إلى النظام -->
   <a href="https://script.google.com/macros/s/AKfycbzEBwgGd5GROgHou-Zb83fOLie76VlSlmkeW8XxZ5b8IkhBwbZa_J7p0dl-lmEFaA3K/exec" id="portalLink">الدخول إلى البوابة</a>
 </main>
+<script>
+  // الانتقال فقط في وضع التطبيق المثبت، وليس عند فتح الرابط العادي.
+  (function () {
+    var fromHomeScreen = window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
+    }
+    if (fromHomeScreen) {
+      document.querySelector('main p').textContent = 'جارٍ فتح بوابة الأنظمة والبرامج…';
+      window.location.replace(document.getElementById('portalLink').href);
+    }
+  })();
+</script>
 </body>
 </html>
