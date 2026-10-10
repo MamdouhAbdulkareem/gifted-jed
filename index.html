@@ -1,95 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>بوابة الأنظمة والبرامج</title>
-<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
-<link rel="apple-touch-icon-precomposed" href="./apple-touch-icon.png?v=4">
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=4">
-<link rel="manifest" href="./manifest.webmanifest?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=6">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=6">
+<link rel="manifest" href="./manifest.webmanifest?v=6">
 <meta name="theme-color" content="#087f7b">
 <meta name="apple-mobile-web-app-title" content="بوابة الأنظمة">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<script>
-(function () {
-  // على الشاشة الرئيسية فقط: انطلق قبل رسم أي صفحة وسيطة.
-  var installed = navigator.standalone === true ||
-    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
-  if (installed) {
-    window.location.replace('https://script.google.com/macros/s/AKfycbzEBwgGd5GROgHou-Zb83fOLie76VlSlmkeW8XxZ5b8IkhBwbZa_J7p0dl-lmEFaA3K/exec');
-  }
-})();
-</script>
 <style>
-  * { box-sizing: border-box; }
-  html { min-height: 100%; background: #f2f8f7; }
-  body {
-    margin: 0;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: max(12px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
-    background: #f2f8f7;
-    color: #183b40;
-    font-family: Tahoma, Arial, sans-serif;
-    text-align: center;
-  }
-  main {
-    flex: none;
-    width: min(100%, 420px);
-    max-height: calc(100svh - 24px);
-    overflow-y: auto;
-    padding: clamp(14px, 3svh, 28px) clamp(14px, 4vw, 22px);
-    background: #fff;
-    border: 1px solid #dce9e8;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px #07595812;
-  }
-  img {
-    width: clamp(62px, 12svh, 112px);
-    height: clamp(62px, 12svh, 112px);
-    object-fit: contain;
-    display: block;
-    margin: 0 auto clamp(6px, 1.4svh, 13px);
-  }
-  h1 { font-size: clamp(17px, 4.5vw, 22px); line-height: 1.35; margin: 0 0 7px; }
-  p { font-size: clamp(12px, 3.2vw, 14px); line-height: 1.65; color: #596e72; margin: 0; }
-  a {
-    display: block;
-    padding: clamp(9px, 1.7svh, 12px);
-    background: #087f7b;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 11px;
-    font-weight: bold;
-    margin-top: clamp(10px, 2svh, 18px);
-  }
-  a:focus-visible { outline: 3px solid #064e4b; outline-offset: 3px; }
-  @media (max-height: 620px), (orientation: landscape) and (max-height: 560px) {
-    body { padding: 8px 12px; }
-    main { max-height: calc(100svh - 16px); padding: 12px 16px; }
-    img { width: 52px; height: 52px; margin-bottom: 5px; }
-    h1 { margin-bottom: 5px; font-size: 17px; }
-    p { font-size: 12px; line-height: 1.45; }
-    a { margin-top: 8px; padding: 9px; }
-  }
-  @media (min-width: 768px) {
-    main { width: min(100%, 460px); }
-  }
-  /* إذا كبّر المستخدم الخط كثيراً، نسمح بالتمرير داخل البطاقة بدلاً من قص النص. */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;background:#f3f7f7}
+  body{font-family:Tahoma,Arial,sans-serif}
+  #portal{position:fixed;inset:0;width:100%;height:100%;border:0;display:block;background:#fff}
+  #fallback{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:3;max-width:calc(100vw - 24px);display:none;gap:8px;align-items:center;justify-content:center;padding:10px 13px;background:#fff;box-shadow:0 2px 12px #0002;border-radius:12px;color:#183b40;font-size:13px}
+  #fallback a{color:#075958;font-weight:700}
 </style>
 </head>
 <body>
-<main>
-<img src="./apple-touch-icon.png?v=4" alt="شعار وزارة التعليم">
-<h1>بوابة الأنظمة والبرامج</h1>
-<p>لإضافة الأيقونة إلى الشاشة الرئيسية، استخدم خيار «إضافة إلى الشاشة الرئيسية» في Safari أو Chrome. بعد الإضافة، اضغط الأيقونة للانتقال مباشرة إلى النظام.</p>
-<a href="https://script.google.com/macros/s/AKfycbzEBwgGd5GROgHou-Zb83fOLie76VlSlmkeW8XxZ5b8IkhBwbZa_J7p0dl-lmEFaA3K/exec">فتح البوابة الآن</a>
-</main>
+<iframe id="portal"
+ src="https://script.google.com/macros/s/AKfycbzEBwgGd5GROgHou-Zb83fOLie76VlSlmkeW8XxZ5b8IkhBwbZa_J7p0dl-lmEFaA3K/exec"
+ title="بوابة الأنظمة والبرامج"
+ loading="eager"
+ referrerpolicy="strict-origin-when-cross-origin"
+ allow="clipboard-read; clipboard-write"
+></iframe>
+<div id="fallback">
+  إذا لم تظهر البوابة،
+  <a href="https://script.google.com/macros/s/AKfycbzEBwgGd5GROgHou-Zb83fOLie76VlSlmkeW8XxZ5b8IkhBwbZa_J7p0dl-lmEFaA3K/exec" target="_blank" rel="noopener noreferrer">افتحها في المتصفح</a>
+</div>
+<script>
+  // يظهر رابط بديل بعد ثوانٍ؛ ظهور إطار فارغ لا يمكن اكتشافه بدقة عبر النطاقات.
+  window.setTimeout(function(){
+    document.getElementById('fallback').style.display='flex';
+  }, 10000);
+</script>
 </body>
 </html>

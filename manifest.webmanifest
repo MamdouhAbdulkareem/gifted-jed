@@ -21,5 +21,9 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "display_override": [
+    "standalone"
+  ],
+  "id": "./"
 }
